@@ -17,6 +17,33 @@ const Card = (article) => {
   //   </div>
   // </div>
   //
+  const cardContainer = document.createElement('div')
+  const cardHeadline = document.createElement('div')
+  const cardAuthor = document.createElement('div')
+  const imgContainer = document.createElement('div')
+  const img = document.createElement('img')
+  const cardSpan = document.createElement('span')
+
+  cardHeadline.textContent = article.headline
+  img.src = article.authorPhoto
+  cardSpan.textContent = `By ${article.authorName}`
+
+  cardContainer.classList.add('card')
+  cardHeadline.classList.add('headline')
+  cardAuthor.classList.add('author')
+  imgContainer.classList.add('img-container')
+
+  cardContainer.appendChild(cardHeadline)
+  cardContainer.appendChild(cardAuthor)
+  cardAuthor.appendChild(imgContainer)
+  imgContainer.appendChild(img)
+  cardAuthor.appendChild(cardSpan)
+
+  cardContainer.addEventListener('click', event => {
+    console.log(article.headline);
+  })
+
+  return cardContainer
 }
 
 const cardAppender = (selector) => {
